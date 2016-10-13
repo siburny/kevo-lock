@@ -16,12 +16,6 @@ module.exports = function (grunt) {
         options: {
           jshintrc: 'test/.jshintrc'
         }
-      },
-      bin: {
-        src: ['bin/**/*'],
-        options: {
-          jshintrc: '.jshintrc'
-        }
       }
     },
 
@@ -30,7 +24,7 @@ module.exports = function (grunt) {
         options: {
           reporter: 'spec'
         },
-        src: ['test/**/*.js']
+        src: ['test/*.js']
       },
     },
 
@@ -39,7 +33,6 @@ module.exports = function (grunt) {
         src: 'test',
         options: {
           coverage: true,
-          root: './lib/Insteon/',
           reportFormats: ['html', 'lcovonly'],
           check: {
             lines: 80,
@@ -63,7 +56,7 @@ module.exports = function (grunt) {
     });
   });
 
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'mocha_istanbul']);
   grunt.registerTask('coverage', ['jshint', 'mocha_istanbul']);
   grunt.registerTask('test', ['jshint', 'mochaTest']);
 };

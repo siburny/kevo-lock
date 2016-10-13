@@ -20,11 +20,7 @@ KevoLock.prototype.init = function () {
     })
     .then(function () {
       debug('Lock initialized.');
-    })
-    /*.catch(function () {
-      debug('There was a problem logging into Kevo. Check your username and password.');
-      //throw new Error('There was a problem logging into Kevo. Check your username and password.')
-    });*/
+    });
 };
 
 KevoLock.prototype._login = function () {
@@ -47,7 +43,7 @@ KevoLock.prototype._login = function () {
       return;
     }
 
-    if (!err && response.statusCode === 200 && response.headers['content-type'].indexOf('text/html') === 0) {
+    if (!err && response.statusCode === 200) {
       var form = {
         'user[username]': self.username,
         'user[password]': self.password,
@@ -100,8 +96,8 @@ KevoLock.prototype._checkLockExists = function () {
       var $ = cheerio.load(body);
 
       var locks = $('*[data-lock-id]');
-      for (var key in locks) {
-        var lockId = $(locks[key]).attr('data-lock-id');
+      for (var i = 0; i < locks.length; i++) {
+        var lockId = $(locks[i]).attr('data-lock-id');
 
         if (lockId === self.lockId) {
           deferred.resolve();
@@ -111,11 +107,11 @@ KevoLock.prototype._checkLockExists = function () {
 
       err = 'Could not locate lock with ID: ' + self.lockId;
       debug(err);
-      deferred.reject(err);
+      deferred.reject(new Error(err));
     } else {
       err = err || new Error('Error fetching lock: Invalid status code ' + response.statusCode);
       debug(err.message);
-      deferred.reject(err.message);
+      deferred.reject(err);
     }
   });
 
@@ -234,11 +230,11 @@ KevoLock.prototype.lock = function (state) {
   }
 
   this.isLocked()
-    .then(function(isLocked) {
-      if(state && !isLocked) {
+    .then(function (isLocked) {
+      if (state && !isLocked) {
 
-      } else if(!state && isLocked) {
-        
+      } else if (!state && isLocked) {
+
       }
     });
 };
