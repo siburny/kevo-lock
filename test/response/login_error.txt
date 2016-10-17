@@ -3,7 +3,7 @@
 <html>
   <head>
     <link href="/assets/favicon-ef174cf86a7628199db2d22a4cb7b24abaa15df90138bff23a1cb7593a682bf7.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-    <title>Kēvo</title>
+    <title>Kevo</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-itunes-app" content="app-id=685604951">
@@ -47,6 +47,11 @@
 </div>
 <div class='row form-container'>
 <div class='large-8 medium-8 large-offset-2 medium-offset-2 columns panel'>
+  <div id="error_explanation">
+    <ul class="error-messages">
+      <li>Username or password is incorrect. Please try again.</li>
+    </ul>
+  </div>
 
 <form accept-charset="UTF-8" action="https://www.mykevo.com/signin" class="" id="new_user" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="wuGbl1ne7VdJu1T3nrltyAEGsYoIe6qQ2DneIQ6yghs=" /></div><h5 class='hide-for-small-only'>Email</h5>
 <p>
@@ -87,7 +92,7 @@ Note: A browser that supports cookies is required to use the Kevo site.
             <li><a href="https://www.mykevo.com/terms">Terms of Use</a></li>
             <li><a href="https://www.mykevo.com/privacy">Privacy Policy</a></li>
           </ul>
-          <p class="copyright">Copyright © 2016 Spectrum Brands, Inc., All rights reserved.</p>
+          <p class="copyright">Copyright � 2016 Spectrum Brands, Inc., All rights reserved.</p>
           <a href="http://www.unikey.com/"><img alt="Powered By UniKey" class="unikey" src="/assets/powered-by-unikey-e20f0a3db4312e9877494cb366d4ebb981a97f246743e7ba758862ef10c5e403.png" /></a>
         </center>
       </div>

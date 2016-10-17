@@ -1,10 +1,10 @@
-var request = require('request').defaults({ jar: true });
+var request = require('request');
 var cheerio = require('cheerio');
 var Q = require('q');
 var debug = require('debug')('kevo-lock');
 
-var STATUS_LOCKED = 'Locked';
-var STATUS_UNLOCKED = 'Unlocked';
+//var STATUS_LOCKED = 'Locked';
+//var STATUS_UNLOCKED = 'Unlocked';
 
 function KevoLock(username, password, lock_id) {
   this.username = username;
@@ -32,15 +32,20 @@ KevoLock.prototype._login = function () {
   var followRedirect = function (response) {
     if (response.headers.location === 'https://www.mykevo.com/user/locks') {
       debug('Already logged in.');
-      return false;
     }
-    return true; // ok redirect, sure
+    return false;
   };
 
   request(url, { followRedirect: followRedirect }, function (err, response, body) {
-    if (!err && response.statusCode === 302 && response.headers.location === 'https://www.mykevo.com/user/locks') {
-      deferred.resolve();
-      return;
+    if (!err && response.statusCode === 302) {
+      if (response.headers.location === 'https://www.mykevo.com/user/locks') {
+        deferred.resolve();
+        return;
+      } else {
+        err = new Error('Error getting login page: bad redirect location ' + response.headers.location + ' [Expected: https://www.mykevo.com/user/locks]');
+        debug(err.message);
+        deferred.reject(err);
+      }
     }
 
     if (!err && response.statusCode === 200) {
@@ -60,26 +65,33 @@ KevoLock.prototype._login = function () {
       });
 
       if (!action) {
-        debug('Couldn\'t find form action.');
-        deferred.reject(new Error('Couldn\'t find form action.'));
+        err = new Error('Error getting login page: can\'t find form action.');
+        debug(err.message);
+        deferred.reject(err);
         return;
       }
 
       request.post(action, { form: form }, function (err, response) {
         if (!err && response.statusCode === 302) {
-          debug('Login successful.');
-          deferred.resolve();
+          if (response.headers.location === 'https://www.mykevo.com/user/locks') {
+            debug('Login successful.');
+            deferred.resolve();
+          } else {
+            err = new Error('Error submitting login page: bad redirect location ' + response.headers.location + ' [Expected: https://www.mykevo.com/user/locks]');
+            debug(err.message);
+            deferred.reject(err);
+          }
         } else {
-          err = err || new Error('Bad status code ' + response.statusCode);
-          debug('Error submitting login page: %s', err);
-          deferred.reject(new Error(err));
+          err = err || new Error('Error submitting login page: bad status code ' + response.statusCode + ' [Expected: 302]');
+          debug(err.message);
+          deferred.reject(err);
         }
       });
 
     } else {
-      err = err || new Error('Invalid response code ' + response.statusCode);
-      debug('Error requesting login page: %s', err);
-      deferred.reject(new Error(err));
+      err = err || new Error('Error getting login page: invalid response code ' + response.statusCode);
+      debug(err.message);
+      deferred.reject(err);
     }
   });
 
@@ -118,6 +130,7 @@ KevoLock.prototype._checkLockExists = function () {
   return deferred.promise;
 };
 
+/*
 KevoLock.prototype._getLockStatus = function () {
   var deferred = Q.defer();
   var url = 'https://www.mykevo.com/user/remote_locks/command/lock.json';
@@ -237,6 +250,6 @@ KevoLock.prototype.lock = function (state) {
 
       }
     });
-};
+};*/
 
 module.exports = KevoLock;

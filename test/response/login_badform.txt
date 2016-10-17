@@ -48,7 +48,6 @@
 <div class='row form-container'>
 <div class='large-8 medium-8 large-offset-2 medium-offset-2 columns panel'>
 
-<form accept-charset="UTF-8" action="https://www.mykevo.com/signin" class="" id="new_user" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="wuGbl1ne7VdJu1T3nrltyAEGsYoIe6qQ2DneIQ6yghs=" /></div><h5 class='hide-for-small-only'>Email</h5>
 <p>
 <input id="user_username" name="user[username]" placeholder="Email" type="text" />
 </p>
@@ -67,7 +66,6 @@
 <p class='cookies-message'>
 Note: A browser that supports cookies is required to use the Kevo site.
 </p>
-</form>
 
 </div>
 </div>
