@@ -25,19 +25,19 @@ describe('Kevo Lock', function () {
     done();
   });
 
-  afterEach(function(done) {
+  afterEach(function (done) {
     nock.cleanAll();
     done();
   });
 
   it('logs in', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/login.txt');
-    })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
-    .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' });
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login.txt');
+      })
+      .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
+      .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -45,15 +45,15 @@ describe('Kevo Lock', function () {
   });
 
   it('error logging in - wrong username/password', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/login.txt');
-    })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/login_error.txt');
-    });
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login.txt');
+      })
+      .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login_error.txt');
+      });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -61,9 +61,9 @@ describe('Kevo Lock', function () {
   });
 
   it('error logging in - internal error #1', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/error' });
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/error' });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -71,13 +71,13 @@ describe('Kevo Lock', function () {
   });
 
   it('error logging in - internal error #2', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/login.txt');
-    })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
-    .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/error' });
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login.txt');
+      })
+      .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
+      .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/error' });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -85,9 +85,9 @@ describe('Kevo Lock', function () {
   });
 
   it('error logging in - internal error #3', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(404, 'Not Found');
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(404, 'Not Found');
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -95,11 +95,11 @@ describe('Kevo Lock', function () {
   });
 
   it('error logging in - bad form', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/login_badform.txt');
-    });
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login_badform.txt');
+      });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -107,9 +107,9 @@ describe('Kevo Lock', function () {
   });
 
   it('is already logged in', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' });
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -117,17 +117,17 @@ describe('Kevo Lock', function () {
   });
 
   it('logs in and lock exists', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/login.txt');
-    })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
-    .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
-    .get('/user/locks')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/locks_found.txt');
-    });
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login.txt');
+      })
+      .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
+      .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
+      .get('/user/locks')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/locks_found.txt');
+      });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -135,17 +135,17 @@ describe('Kevo Lock', function () {
   });
 
   it('logs in, and lock does not exist', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/login.txt');
-    })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
-    .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
-    .get('/user/locks')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/locks_not_found.txt');
-    });
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login.txt');
+      })
+      .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
+      .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
+      .get('/user/locks')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/locks_not_found.txt');
+      });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
@@ -153,15 +153,15 @@ describe('Kevo Lock', function () {
   });
 
   it('logs in and lock exists - internal error', function () {
-  http = nock('https://www.mykevo.com/')
-    .get('/login')
-    .reply(200, function () {
-      return fs.createReadStream('test/response/login.txt');
-    })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
-    .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
-    .get('/user/locks')
-    .reply(404, 'Not Found');
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login.txt');
+      })
+      .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
+      .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
+      .get('/user/locks')
+      .reply(404, 'Not Found');
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
 
