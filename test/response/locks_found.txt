@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="/assets/favicon-31f41a2925d80b01586aed1eb477d730.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <link href="/assets/favicon-ef174cf86a7628199db2d22a4cb7b24abaa15df90138bff23a1cb7593a682bf7.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     <title>Your locks and eKeys</title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"c754cb4693","applicationID":"3258593","transactionName":"c1lZQ0pbCg8DFBhCF1VEGFtXVw0QSQ9ZUwFI","queueTime":0,"applicationTime":458,"agent":"js-agent.newrelic.com/nr-768.min.js"}</script>
-<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):void(r.q&&(r.q[e]||(r.q[e]=[]),r.q[e].push(n)))}var r=e("ee").create();n.exports=t,t.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=window,f=u.document;e(2);var s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-768.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-itunes-app" content="app-id=685604951">
     <meta name="msapplication-config" content="none"/>
-    <link data-turbolinks-track="true" href="/assets/application-base-149fea39649ab30196a7b6624f8841e6.css" media="all" rel="stylesheet" />
-    <link data-turbolinks-track="true" href="/assets/application-site-bed80a1cb60dd26d94db00b798e0506e.css" media="all" rel="stylesheet" />
-    <script data-turbolinks-track="true" src="/assets/application-6c301725d6c5177591765d46a7bf4ed5.js"></script>
-    <script src="/assets/vendor/modernizr-990d1c59a7b4a886d3b153f4ad20583f.js"></script>
+    <link data-turbolinks-track="true" href="/assets/application-base-3a773fbaa344cf900d1c1dc978de43f630e7cb45b9ba6aafb50b376c3d8ca2f8.css" media="all" rel="stylesheet" />
+    <link data-turbolinks-track="true" href="/assets/application-site-9488943ab378c4dbc8226f9c650fc324d9163804f217a2c1eb3c1209d136d31c.css" media="all" rel="stylesheet" />
+    <script data-turbolinks-track="true" src="/assets/application-80ecf0fd98db61d6bbb1af3a3c47597fcb72d1777f38e611d22dc332fed12052.js"></script>
+    <script src="/assets/vendor/modernizr-4acdf69dfb61855f7bf52c0e8df714b19a8d07185726649e16d0669659008db5.js"></script>
     <meta content="authenticity_token" name="csrf-param" />
-<meta content="r7hK0OycH3tpfohWo5189JLRVW0wpSRXz0dXGfEW+fU=" name="csrf-token" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple_touch_icon/144-d66a85894fa39342cc9d1d7ad56e1548.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple_touch_icon/114-3f09bea7aeb63765a1253d46f95bb26c.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple_touch_icon/72-6bf0ee6c3f2146e38275dd625d307642.png">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/apple_touch_icon/57-460c8272ee2ee2c6b7f2b38db70d28fc.png">
+<meta content="25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY=" name="csrf-token" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple_touch_icon/144-a82492147ff9a0c28bd6fc11974f5fa3ef71c855404f658a9ace2787d6b5d817.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/apple_touch_icon/114-57258f56c827791876f869ecbdbd01dedd96aa19f8acde2e7278107c9a7e8828.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/apple_touch_icon/72-f36c7ccd4c4d1c2e83069a318bbeaea274877d1257e552a4dad666e677e4368f.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/apple_touch_icon/57-44f7feef1c0454e614ed608f99210416fd083bd78f98410ae437a9ec6864d6ca.png">
 
 
   </head>
@@ -29,43 +27,44 @@
   <div class="inner-wrap">
     <nav class="tab-bar" data-no-turbolink>
         <section class="left-small">
-          <a class="left-off-canvas-toggle"><img alt="Menu Button" class="menu-btn" src="/assets/menu-icon-b6b744d4110dc6162d38942396538495.png" /></a>
+          <a class="left-off-canvas-toggle"><img alt="Menu Button" class="menu-btn" src="/assets/menu-icon-3771094bf4297b1280159f3988aa79429334e13002725bb62943f8aa22885e2d.png" /></a>
         </section>
       <section class="middle tab-bar-section">
         <center>
-            <a href="https://www.mykevo.com/user/locks"><img alt="Logo" class="logo" src="/assets/kevo-logo-54d47b7a2833d72b2f2e7763bf4e41df.png" /></a>
+            <a href="https://www.mykevo.com/user/locks"><img alt="Logo" class="logo" src="/assets/kevo-logo-dc5ec5204b42388bd93f7062fdf619360524e265f73db24c727d204d29dd8f72.png" /></a>
         </center>
       </section>
         <section class="right-small">
-          <a class="right-off-canvas-toggle"><img alt="Settings Button" class="settings-btn" src="/assets/settings-icon-f8d1d73fbe0a40770014e23e8da8a141.png" /></a>
+          <a class="right-off-canvas-toggle"><img alt="Settings Button" class="settings-btn" src="/assets/settings-icon-eb608e18fde85662b2fd3a56ecdc9ab8df9a3019b8d54addf0cd7b28e888892f.png" /></a>
         </section>
     </nav>
       <aside class="left-off-canvas-menu" data-no-turbolink>
         <ul class="off-canvas-list">
           <li><label>Create</label></li>
-          <li><a href="/user/send_key/select_lock"><img alt="Menu icon 1" class="menu-icon" src="/assets/menu-icon-1-9b161b85e8e9a150f48041c49ce9f8c2.png" />Send an eKey</a></li>
+          <li><a href="/user/send_key/select_lock"><img alt="Menu icon 1 5ea4e1c6c226cf76daa4818b8fb9877d8dd9905ffb421c3ef04286c50a0cfbf7" class="menu-icon" src="/assets/menu-icon-1-5ea4e1c6c226cf76daa4818b8fb9877d8dd9905ffb421c3ef04286c50a0cfbf7.png" />Send an eKey</a></li>
           <li><label>Manage</label></li>
-          <li><a href="/user/locks"><img alt="Menu icon 2" class="menu-mylocks" src="/assets/menu-icon-2-3ff3d15eddef040e65690667fcd4f91a.png" />My Locks and eKeys</a></li>
-          <li><a href="/user/users"><img alt="Menu icon 4" class="menu-icon" src="/assets/menu-icon-4-3c7d66d6cb20cbe3860fdf4952c73821.png" />My Users</a></li>
-          <li><a href="/kevoplus/upgrade/sold_out" target="_blank"><img alt="Menu icon 6" class="menu-icon" src="/assets/menu-icon-6-64804d972e1d5267ac9f384df4417752.png" />Purchase Kevo Plus</a></li>
+          <li><a href="/user/locks"><img alt="Menu icon 2 e6251eccef30a1c2de0b716bd0aa8bb9bb292534c00a5201605b2d4f21bbd7c5" class="menu-mylocks" src="/assets/menu-icon-2-e6251eccef30a1c2de0b716bd0aa8bb9bb292534c00a5201605b2d4f21bbd7c5.png" />My Locks and eKeys</a></li>
+          <li><a href="/user/users"><img alt="Menu icon 4 49b5a20d2cbc5348afd146d85012b9b89540d925ef4ddd3214e8e0a87a3e141a" class="menu-icon" src="/assets/menu-icon-4-49b5a20d2cbc5348afd146d85012b9b89540d925ef4ddd3214e8e0a87a3e141a.png" />My Users</a></li>
+          <li><a href="/kevoplus/upgrade" target="_blank"><img alt="Menu icon 6 5ee7de20d8a6ac52d61533872fee4764541fade9a2abff70b0436990f20c7094" class="menu-icon" src="/assets/menu-icon-6-5ee7de20d8a6ac52d61533872fee4764541fade9a2abff70b0436990f20c7094.png" />Purchase Kevo Plus</a></li>
           <li><label>Information</label></li>
-          <li><a href="/user/history"><img alt="Menu icon 3" class="menu-icon" src="/assets/menu-icon-3-506de623c6d56a726c7a67ff670163b7.png" />History</a></li>
-          <li><a href="/user/notifications"><img alt="Menu icon 5" class="menu-icon" src="/assets/menu-icon-5-8dd77b1d209480b1d913b3e7f1ffee1a.png" />Notifications</a></li>
+          <li><a href="/user/history"><img alt="Menu icon 3 dd26ff78a3a80673c3fb91804d8f237877f02bd3528a53ae2ef9d9c1af4de957" class="menu-icon" src="/assets/menu-icon-3-dd26ff78a3a80673c3fb91804d8f237877f02bd3528a53ae2ef9d9c1af4de957.png" />History</a></li>
+          <li><a href="/user/notifications"><img alt="Menu icon 5 856c57e43de880206c3ffdd86ed9efc952eccdd004167de2e3e3c02486361245" class="menu-icon" src="/assets/menu-icon-5-856c57e43de880206c3ffdd86ed9efc952eccdd004167de2e3e3c02486361245.png" />Notifications</a></li>
         </ul>
       </aside>
       <aside class="right-off-canvas-menu">
         <ul class="off-canvas-list">
-            <li><label>Nick Farina</label></li>
+            <li><label>Maxim Rubis</label></li>
             <li><a href="https://www.mykevo.com/user/profile">Edit My Profile</a></li>
             <li><a href="https://www.mykevo.com/user/email">Change Email</a></li>
             <li><a href="https://www.mykevo.com/user/password">Change Password</a></li>
             <li><a href="/user/devices">Disable My Device</a></li>
+            <li><a href="/user/cancel_account">Cancel My Account</a></li>
             <li><a href="https://www.mykevo.com/user/subscriptions">Subscriptions</a></li>
             <!-- <li></li> -->
             <li><a href="/user/logout">Log Out</a></li>
         </ul>
         <div id="app_version">
-          v1.2.4
+          v1.2.3
         </div>
       </aside>
 <!-- end of Sidebar Menu -->
@@ -91,16 +90,16 @@ Lock Updated.
 </li>
 <li class='active_ekeys text-center'>
 <div class='large-6 large-offset-3 active_container'>
-2 active eKeys
+3 active eKeys
 </div>
 </li>
 <li class='pending_ekeys text-center'>
 no pending eKeys
 </li>
 <li class='lock_unlock text-center'>
-<div class='lock_unlock_container' data-bolt-state='Locked' data-lock-id='00000000-0000-0000-0000-000000000000' id='action_buttons_for_#{lock.id}'>
+<div class='lock_unlock_container' data-bolt-state='Unlocked' data-lock-id='00000000-0000-0000-0000-000000000000' id='action_buttons_for_#{lock.id}'>
 <!-- locked container -->
-<div class='locked container' style='display: block'>
+<div class='locked container' style='display: none'>
 <!-- locked loading icon (unlock authenticating) -->
 <div class='loading_icon' style='display: none'>
 <div class="btn-wrapper unlocking" data-lock-id="00000000-0000-0000-0000-000000000000">
@@ -127,7 +126,7 @@ no pending eKeys
 </div>
 </div>
 <!-- unlocked container -->
-<div class='unlocked container' data-lock-id='00000000-0000-0000-0000-000000000000' style='display: none'>
+<div class='unlocked container' data-lock-id='00000000-0000-0000-0000-000000000000' style='display: block'>
 <!-- unlocked loading icon (lock authenticating) -->
 <div class='loading_icon' style='display: none'>
 <div class="btn-wrapper locking" data-lock-id="00000000-0000-0000-0000-000000000000">
@@ -222,7 +221,7 @@ Click to unlock and try again.
     <div class="large-12 columns">
        <div class="row">
         <center>
-          <a href="/help" target="_blank"><img alt="Support Center" class="support_center" src="/assets/kevo-support-logo-93a937af3b360de274f1f6fdf4c284e0.png" /></a>
+          <a href="/help" target="_blank"><img alt="Support Center" class="support_center" src="/assets/kevo-support-logo-7da01b30f53952bd860d12e7219dccdbb4caa69c34a19a1555cf4a81b98e7a2c.png" /></a>
           <ul class="footer_links show-for-medium-up">
             <li><a href="https://www.mykevo.com/terms">Terms of Use</a>|</li>
             <li><a href="https://www.mykevo.com/privacy">Privacy Policy</a></li>
@@ -231,8 +230,8 @@ Click to unlock and try again.
             <li><a href="https://www.mykevo.com/terms">Terms of Use</a></li>
             <li><a href="https://www.mykevo.com/privacy">Privacy Policy</a></li>
           </ul>
-          <p class="copyright">Copyright © 2015 Spectrum Brands, Inc., All rights reserved.</p>
-          <a href="http://www.unikey.com/"><img alt="Powered By UniKey" class="unikey" src="/assets/powered-by-unikey-75635e993c2644cf1f19f581c2118518.png" /></a>
+          <p class="copyright">Copyright © 2018 Spectrum Brands, Inc., All rights reserved.</p>
+          <a href="http://www.unikey.com/"><img alt="Powered By UniKey" class="unikey" src="/assets/powered-by-unikey-e20f0a3db4312e9877494cb366d4ebb981a97f246743e7ba758862ef10c5e403.png" /></a>
         </center>
       </div>
     </div>

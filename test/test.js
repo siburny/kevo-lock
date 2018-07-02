@@ -36,7 +36,7 @@ describe('Kevo Lock', function () {
     .reply(200, function () {
       return fs.createReadStream('test/response/login.txt');
     })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=wuGbl1ne7VdJu1T3nrltyAEGsYoIe6qQ2DneIQ6yghs%3D')
+    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
     .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
@@ -50,7 +50,7 @@ describe('Kevo Lock', function () {
     .reply(200, function () {
       return fs.createReadStream('test/response/login.txt');
     })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=wuGbl1ne7VdJu1T3nrltyAEGsYoIe6qQ2DneIQ6yghs%3D')
+    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
     .reply(200, function () {
       return fs.createReadStream('test/response/login_error.txt');
     });
@@ -76,7 +76,7 @@ describe('Kevo Lock', function () {
     .reply(200, function () {
       return fs.createReadStream('test/response/login.txt');
     })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=wuGbl1ne7VdJu1T3nrltyAEGsYoIe6qQ2DneIQ6yghs%3D')
+    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
     .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/error' });
 
     var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
@@ -122,7 +122,7 @@ describe('Kevo Lock', function () {
     .reply(200, function () {
       return fs.createReadStream('test/response/login.txt');
     })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=wuGbl1ne7VdJu1T3nrltyAEGsYoIe6qQ2DneIQ6yghs%3D')
+    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
     .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
     .get('/user/locks')
     .reply(200, function () {
@@ -140,7 +140,7 @@ describe('Kevo Lock', function () {
     .reply(200, function () {
       return fs.createReadStream('test/response/login.txt');
     })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=wuGbl1ne7VdJu1T3nrltyAEGsYoIe6qQ2DneIQ6yghs%3D')
+    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
     .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
     .get('/user/locks')
     .reply(200, function () {
@@ -158,7 +158,7 @@ describe('Kevo Lock', function () {
     .reply(200, function () {
       return fs.createReadStream('test/response/login.txt');
     })
-    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=wuGbl1ne7VdJu1T3nrltyAEGsYoIe6qQ2DneIQ6yghs%3D')
+    .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
     .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
     .get('/user/locks')
     .reply(404, 'Not Found');

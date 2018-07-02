@@ -1,6 +1,6 @@
 {
   "name": "kevo-lock",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Kevo Lock library",
   "license": "MIT",
   "keywords": [
@@ -17,21 +17,25 @@
     "node": ">=0.12.0"
   },
   "dependencies": {
-    "commander": "^2.7.0",
-    "q": "1.x",
-    "debug": "2.x",
-    "cheerio": "0.x",
-    "request": "2.x"
+    "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.16.0",
+    "debug": "^3.1.0",
+    "q": "^1.5.1",
+    "request": "^2.87.0"
   },
   "devDependencies": {
-    "coveralls": "*",
-    "grunt": "*",
-    "grunt-contrib-jshint": "*",
+    "coveralls": "^3.0.2",
+    "grunt": "^1.0.3",
+    "grunt-contrib-jshint": "^1.1.0",
     "grunt-mocha-istanbul": "*",
-    "grunt-mocha-test": "*",
+    "grunt-mocha-test": "^0.13.3",
     "istanbul": "*",
-    "mocha": "*",
-    "nock": "^8.1.0",
-    "should": "*"
+    "mocha": "^5.2.0",
+    "nock": "^9.4.0",
+    "should": "^13.2.1"
+  },
+  "scripts": {
+    "test": "grunt",
+	"test-only":  "grunt test"
   }
 }
