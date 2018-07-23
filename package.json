@@ -31,11 +31,11 @@
     "grunt-mocha-test": "^0.13.3",
     "istanbul": "*",
     "mocha": "^5.2.0",
-    "nock": "^9.4.0",
+    "nock": "^9.4.2",
     "should": "^13.2.1"
   },
   "scripts": {
     "test": "grunt",
-	"test-only":  "grunt test"
+    "test-only": "grunt test"
   }
 }

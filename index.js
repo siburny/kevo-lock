@@ -1,25 +1,31 @@
-var request = require('request');
+var request = require('request').defaults({jar: true});
 var cheerio = require('cheerio');
 var Q = require('q');
 var debug = require('debug')('kevo-lock');
 
-//var STATUS_LOCKED = 'Locked';
-//var STATUS_UNLOCKED = 'Unlocked';
+const STATUS_LOCKED = 'Locked';
+const STATUS_UNLOCKED = 'Unlocked';
 
 function KevoLock(username, password, lock_id) {
   this.username = username;
   this.password = password;
   this.lockId = lock_id;
+  this.ready = false;
+  this.last_updated = null;
 }
 
 KevoLock.prototype.init = function () {
   var lock = this;
   return this._login()
     .then(function () {
-      return lock._checkLockExists();
+      return lock.ready || lock._checkLockExists();
     })
     .then(function () {
-      debug('Lock initialized.');
+      !lock.ready && debug('Lock initialized.');
+      lock.ready = true;
+    })
+    .fail(function(err) {
+      debug('Lock initialization failed.');
     });
 };
 
@@ -107,7 +113,7 @@ KevoLock.prototype._checkLockExists = function () {
     if (!err && response.statusCode === 200) {
       var $ = cheerio.load(body);
 
-      var locks = $('*[data-lock-id]');
+      var locks = $('ul.lock div.lock_unlock_container[data-lock-id]');
       for (var i = 0; i < locks.length; i++) {
         var lockId = $(locks[i]).attr('data-lock-id');
 
@@ -130,7 +136,7 @@ KevoLock.prototype._checkLockExists = function () {
   return deferred.promise;
 };
 
-/*
+
 KevoLock.prototype._getLockStatus = function () {
   var deferred = Q.defer();
   var url = 'https://www.mykevo.com/user/remote_locks/command/lock.json';
@@ -151,6 +157,58 @@ KevoLock.prototype._getLockStatus = function () {
   return deferred.promise;
 };
 
+KevoLock.prototype.isLocked = function () {
+  var err;
+
+  return this.status()
+    .then(function (status) {
+      if (status && status.bolt_state) {
+        var state = status.bolt_state;
+        if (state === STATUS_LOCKED) {
+          return true;
+        } else if (state === STATUS_UNLOCKED) {
+          return false;
+        } else {
+          err = 'Error getting state: Invalid lock state \'' + state + '\'.';
+          debug(err);
+          throw new Error(err);
+        }
+      } else {
+        err = 'Error getting state: no status returned.';
+        debug(err);
+        throw new Error(err);
+      }
+    });
+};
+
+KevoLock.prototype.status = function () {
+  var self = this;
+
+  if (!self.lockId) {
+    var err = 'Lock has no ID assigned; can\'t get current state.';
+    debug(err);
+    return Q.reject(err);
+  }
+
+  debug('Getting current status.');
+
+  return self.init()
+    .then(function() {
+      return self._getLockStatus();
+    })
+    .then(function (status) {
+      debug('Lock status success');
+
+      self.name = status.name;
+      self.brand = status.brand;
+      self.bolt_state = status.bolt_state;
+      self.last_updated = new Date(status.bolt_state_time + "Z");
+
+      return status;
+    });
+};
+
+/*
 KevoLock.prototype._setLockStatus = function (status) {
   var url;
   var self = this;
@@ -189,30 +247,6 @@ KevoLock.prototype._setLockStatus = function (status) {
   });
 
   return deferred.promise;
-};
-
-KevoLock.prototype.isLocked = function () {
-  var err;
-
-  return this.status()
-    .then(function (status) {
-      if (status && status.bolt_state) {
-        var state = status.bolt_state;
-        if (state === STATUS_LOCKED) {
-          return true;
-        } else if (state === STATUS_UNLOCKED) {
-          return false;
-        } else {
-          err = 'Error getting state: Invalid lock state \'' + state + '\'.';
-          debug(err);
-          throw new Error(err);
-        }
-      } else {
-        err = 'Error getting state: no status returned.';
-        debug(err);
-        throw new Error(err);
-      }
-    });
 };
 
 KevoLock.prototype.status = function () {

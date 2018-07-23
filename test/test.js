@@ -168,4 +168,32 @@ describe('Kevo Lock', function () {
     return lock.init().should.be.rejectedWith(Error, { message: 'Error fetching lock: Invalid status code 404' });
   });
 
+  it('checks the status of the lock', function () {
+    http = nock('https://www.mykevo.com/')
+      .get('/login')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/login.txt');
+      })
+      .post('/signin', 'user%5Busername%5D=test%40test.com&user%5Bpassword%5D=password&commit=Sign%20In&utf8=%E2%9C%93&authenticity_token=25OSFMcktltfVZf5VQdh3ZMGpbieZTXklCluaEbPsEY%3D')
+      .reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
+      .get('/user/locks')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/locks_found.txt');
+      })
+      //.get('/login')
+      //.reply(302, 'Moved', { 'Location': 'https://www.mykevo.com/user/locks' })
+      .get('/user/remote_locks/command/lock.json?arguments=00000000-0000-0000-0000-000000000000')
+      .reply(200, function () {
+        return fs.createReadStream('test/response/lock.json');
+      })
+      ;
+
+    var lock = new Kevo('test@test.com', 'password', '00000000-0000-0000-0000-000000000000');
+
+    return lock.isLocked()
+      .then(function(state) {
+        should.exist(state);
+        state.should.equal(true);
+      });
+  });
 });
