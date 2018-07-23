@@ -21,6 +21,7 @@
     "test": false,
     "before": false,
     "after": false,
-    "afterEach": false
+    "afterEach": false,
+    "should": false
   }
 }

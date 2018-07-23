@@ -3,8 +3,8 @@ var cheerio = require('cheerio');
 var Q = require('q');
 var debug = require('debug')('kevo-lock');
 
-const STATUS_LOCKED = 'Locked';
-const STATUS_UNLOCKED = 'Unlocked';
+var STATUS_LOCKED = 'Locked';
+var STATUS_UNLOCKED = 'Unlocked';
 
 function KevoLock(username, password, lock_id) {
   this.username = username;
@@ -25,7 +25,8 @@ KevoLock.prototype.init = function () {
       lock.ready = true;
     })
     .fail(function(err) {
-      debug('Lock initialization failed.');
+      debug('Lock initialization failed: ' + err);
+      throw err;
     });
 };
 
@@ -184,12 +185,6 @@ KevoLock.prototype.isLocked = function () {
 KevoLock.prototype.status = function () {
   var self = this;
 
-  if (!self.lockId) {
-    var err = 'Lock has no ID assigned; can\'t get current state.';
-    debug(err);
-    return Q.reject(err);
-  }
-
   debug('Getting current status.');
 
   return self.init()
@@ -202,7 +197,7 @@ KevoLock.prototype.status = function () {
       self.name = status.name;
       self.brand = status.brand;
       self.bolt_state = status.bolt_state;
-      self.last_updated = new Date(status.bolt_state_time + "Z");
+      self.last_updated = new Date(status.bolt_state_time + 'Z');
 
       return status;
     });
