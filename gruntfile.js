@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 
     mocha_istanbul: {
       coverage: {
-        src: 'test',
+        src: ['test/**/*.js'],
         options: {
           coverage: true,
           reportFormats: ['html', 'lcovonly'],
